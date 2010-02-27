@@ -18,20 +18,16 @@ textprocesstask::HandleStanza(const XmlElement* stanza) {
 
 int textprocesstask::ProcessStart() {
   const XmlElement * stanza = NextStanza();
+  const XmlElement *body ;
   if (stanza == NULL)
     return STATE_BLOCKED;
 
-   const XmlChild *child = stanza->FirstChild();
-   if (!child)
-        return STATE_START;
-    const XmlElement *body = child->AsElement();
-
-	if (body != NULL) {
-
-		SignalTextInfo(body->BodyText(), stanza->Attr(QN_FROM));
-		//sendMessages("auto", stanza->Attr(QN_FROM));
-    }
-    return STATE_START;
+// we can do more chat status and signaling here
+  body =stanza->FirstNamed(QN_BODY);
+  if (body != NULL) {
+	SignalTextInfo(body->BodyText(), stanza->Attr(QN_FROM));
+  }
+  return STATE_START;
 }
 
 int textprocesstask::sendMessages(const std::string& textContent, const std::string& jid_) {

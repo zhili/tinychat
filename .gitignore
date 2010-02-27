@@ -6,3 +6,18 @@ autom4te.cache
 .*
 # except for .gitignore
 !.gitignore
+*.lo
+*.log
+Makefile
+talk/base/nat_unittest
+talk/base/natserver
+talk/base/virtualsocket_unittest
+talk/examples/chat/chat
+talk/examples/login/login
+talk/examples/pcp/pcp
+talk/p2p/base/port_unittest
+talk/p2p/base/relayserver
+talk/p2p/base/session_unittest
+talk/p2p/base/stunserver
+talk/p2p/base/stunserver_unittest
+
