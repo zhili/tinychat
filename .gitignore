@@ -1,0 +1,8 @@
+*.[oa]
+*~
+*.la
+autom4te.cache
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
